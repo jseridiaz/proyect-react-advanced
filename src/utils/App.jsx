@@ -16,12 +16,12 @@ const App = () => {
       <>
          <Header1 />
          <Routes>
-             <Route path='/' index element={<Home />} />
+            <Route path='/' index element={<Home />} />
             <Route path='/home' element={<Home />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/favourites' element={<Favourites />} />
             <Route path='/login' element={<Login />} />
-            <Route path='*' element={<NotFounded />} />  
+            <Route path='*' element={<NotFounded />} />
          </Routes>
          <FooterComponent />
       </>
