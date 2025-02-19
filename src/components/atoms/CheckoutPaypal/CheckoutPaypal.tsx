@@ -43,12 +43,7 @@ const CheckoutPaypal = ({ cart, total }) => {
                <p>is Loading...</p>
             ) : (
                <PayPalButtons
-                  onClick={() =>
-                     alert(
-                        "The implementation of the payment methods have been tested and are now disabled to avoid real payments",
-                     )
-                  }
-                  disabled={true}
+                  disabled
                   // createOrder={(data, actions) =>
                   //    onCreateOrder(data, actions, total, options)
                   // }
