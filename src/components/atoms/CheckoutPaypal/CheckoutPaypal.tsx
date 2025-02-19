@@ -43,11 +43,11 @@ const CheckoutPaypal = ({ cart, total }) => {
                <p>is Loading...</p>
             ) : (
                <PayPalButtons
-                  disabled
-                  // createOrder={(data, actions) =>
-                  //    onCreateOrder(data, actions, total, options)
-                  // }
-                  //     onApprove={(data, actions) => onApproveOrder(data, actions)}
+
+               // createOrder={(data, actions) =>
+               //    onCreateOrder(data, actions, total, options)
+               // }
+               //     onApprove={(data, actions) => onApproveOrder(data, actions)}
                />
             )}
          </DivPaypal>
