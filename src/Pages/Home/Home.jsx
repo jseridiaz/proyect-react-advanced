@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import styled from "styled-components"
 
 import H2 from "../../components/atoms/H2/H2"
@@ -11,6 +12,9 @@ import Seo from "../../components/organisms/Seo/Seo"
 import { arrayPicturesHero } from "../../data/arrayPicturesHero/arrayPicturesHero"
 
 const Home = () => {
+   useEffect(() => {
+      console.log(import.meta.env.VITE_CLIENTID_PAYPAL)
+   }, [])
    return (
       <>
          <Seo
