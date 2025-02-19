@@ -12,6 +12,9 @@ import Seo from "../../components/organisms/Seo/Seo"
 import { arrayPicturesHero } from "../../data/arrayPicturesHero/arrayPicturesHero"
 
 const Home = () => {
+   useEffect(() => {
+      console.log(import.meta.env.VITE_CLIENTID_PAYPAL)
+   }, [])
    return (
       <>
          <Seo
