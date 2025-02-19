@@ -23,7 +23,6 @@ const DescriptionCard = ({
             <p>{infoArticle}</p>
             <p className='price'>{price}€</p>
          </div>
-         {console.log(booleanState)}
          <Button
             title='Add to cart'
             action={() => {

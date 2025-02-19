@@ -1,4 +1,4 @@
-import React from "react"
+import { memo } from "react"
 import { Helmet } from "react-helmet-async"
 
 const Seo = ({ title, description, url, img }) => {
@@ -19,4 +19,4 @@ const Seo = ({ title, description, url, img }) => {
    )
 }
 
-export default Seo
+export default memo(Seo)

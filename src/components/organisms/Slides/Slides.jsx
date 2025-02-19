@@ -14,7 +14,7 @@ import DescriptionCard from "../../molecules/DescriptionCard/DescriptionCard"
 const Slides = () => {
    const { cart, setCart } = useContext(CartContext)
    const { arrayToChange, setArrayToChange } = useContext(FavouriteContext)
-   const [boolean, invertBoolean, setBoolean] = useBoolean()
+   const [boolean, setBoolean] = useBoolean()
    const [elSelected, setElSelected] = useState("")
 
    return (

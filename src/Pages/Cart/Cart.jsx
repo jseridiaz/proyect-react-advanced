@@ -2,6 +2,7 @@ import { useContext } from "react"
 import styled from "styled-components"
 
 import Button from "../../components/atoms/button/button"
+import CheckoutPaypal from "../../components/atoms/CheckoutPaypal/CheckoutPaypal"
 import H2 from "../../components/atoms/H2/H2"
 import H3 from "../../components/atoms/H3/H3"
 import ImgHero from "../../components/atoms/Img/Img"
@@ -95,20 +96,13 @@ const Cart = () => {
                            <Button action={() => setCart([])}> Clear Cart</Button>
                            <div>
                               <span> Total:</span>
-                              <span>
-                                 {
-                                    getTotal(cart) /* {cart
-                                    .reduce(
-                                       (acc, el) => el.quantity * el.price + acc,
-                                       0,
-                                    )
-                                    .toFixed(2)} */
-                                 }
-                                 €
-                              </span>
+                              <span>{getTotal(cart)}€</span>
                            </div>
                         </div>
-                        <Button id='buy-btn'>Buy now</Button>
+
+                        <CheckoutPaypal cart={cart} total={getTotal(cart)} />
+
+                        {/* <Button id='buy-btn'>Buy now</Button> */}
                      </div>
                   </>
                )}
