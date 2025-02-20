@@ -2,7 +2,6 @@ import { useContext } from "react"
 import styled from "styled-components"
 
 import Button from "../../components/atoms/button/button"
-import CheckoutPaypal from "../../components/atoms/CheckoutPaypal/CheckoutPaypal"
 import H2 from "../../components/atoms/H2/H2"
 import H3 from "../../components/atoms/H3/H3"
 import ImgHero from "../../components/atoms/Img/Img"
@@ -100,9 +99,7 @@ const Cart = () => {
                            </div>
                         </div>
 
-                        <CheckoutPaypal cart={cart} total={getTotal(cart)} />
-
-                        {/* <Button id='buy-btn'>Buy now</Button> */}
+                        <Button id='buy-btn'>Buy now</Button>
                      </div>
                   </>
                )}

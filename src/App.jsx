@@ -1,6 +1,5 @@
 import "./App.css"
 
-import { PayPalScriptProvider } from "@paypal/react-paypal-js"
 import { Route, Routes } from "react-router-dom"
 import styled from "styled-components"
 
@@ -13,27 +12,21 @@ import Login from "./Pages/Login/Login"
 import NotFounded from "./Pages/NotFounded/NotFounded"
 
 const App = () => {
-   const initialOptions = {
-      "client-id": `${import.meta.env.VITE_CLIENTID_PAYPAL}`,
-      currency: "EUR",
-      intent: "capture",
-   }
    return (
       <>
-         <PayPalScriptProvider options={initialOptions}>
-            <Header1 />
+         <Header1 />
 
-            <Routes>
-               <Route path='/' index element={<Home />} />
-               <Route path='/home' element={<Home />} />
+         <Routes>
+            <Route path='/' index element={<Home />} />
+            <Route path='/home' element={<Home />} />
 
-               <Route path='/cart' element={<Cart />} />
-               <Route path='/favourites' element={<Favourites />} />
-               <Route path='/login' element={<Login />} />
-               <Route path='*' element={<NotFounded />} />
-            </Routes>
-            <FooterComponent />
-         </PayPalScriptProvider>
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/cart/:id' element={<Cart />} />
+            <Route path='/favourites' element={<Favourites />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='*' element={<NotFounded />} />
+         </Routes>
+         <FooterComponent />
       </>
    )
 }
