@@ -99,7 +99,12 @@ const Cart = () => {
                            </div>
                         </div>
 
-                        <Button id='buy-btn'>Buy now</Button>
+                        <Button
+                           id='buy-btn'
+                           goTo={`/cart/payment/${crypto.randomUUID()}`}
+                        >
+                           Buy now
+                        </Button>
                      </div>
                   </>
                )}
