@@ -7,9 +7,9 @@ import {
 import React, { useContext, useEffect, useState } from "react"
 import styled from "styled-components"
 
-import ImgHero from "../../components/atoms/Img/ImgHero"
+import CardClothing from "../../components/molecules/CardClothing/CardClothing"
+import ShowTotalAmount from "../../components/molecules/ShowTotalAmount/ShowTotalAmount"
 import { CartContext } from "../../utils/useContext/useContextCart"
-import { DivCart } from "../Cart/Cart"
 
 export default function CheckoutForm() {
    const stripe = useStripe()
@@ -54,7 +54,7 @@ export default function CheckoutForm() {
    }
 
    return (
-      <ContainerForm>
+      <ContainerForm className='flex'>
          <form id='payment-form' onSubmit={handleSubmit}>
             <AddressElement id='adresse-element' options={{ mode: "billing" }} />
             <PaymentElement id='payment-element' options={paymentElementOptions} />
@@ -72,10 +72,9 @@ export default function CheckoutForm() {
          </form>
          <article className='products'>
             {cart.map(el => (
-               <DivCart key={el.id}>
-                  <ImgHero img={el.img} alt={`picture-appareal-${el.title}`} />
-               </DivCart>
+               <CardClothing el={el} key={el.id} modify={false} />
             ))}
+            <ShowTotalAmount cart={cart} />
          </article>
       </ContainerForm>
    )
@@ -83,6 +82,7 @@ export default function CheckoutForm() {
 const ContainerForm = styled.div`
    min-height: 80svh;
    padding: var(--jd-padding-l) var(--jd-padding-m);
+   justify-content: space-between;
    > form {
       width: 42%;
       padding: var(--jd-padding-m);

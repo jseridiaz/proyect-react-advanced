@@ -6,13 +6,14 @@ import H2 from "../../components/atoms/H2/H2"
 import H3 from "../../components/atoms/H3/H3"
 import ImgHero from "../../components/atoms/Img/ImgHero"
 import Parraf from "../../components/atoms/Parraf/Parraf"
+import { DivCart } from "../../components/molecules/CardClothing/CardClothing"
 import Seo from "../../components/organisms/Seo/Seo"
 import { TypeHeart } from "../../data/iconsSvgHeart/iconSvg"
 import useFilter from "../../utils/customHooks/useFilter/useFilter"
 import addToCart from "../../utils/functions/addToCart/addToCart"
 import { CartContext } from "../../utils/useContext/useContextCart"
 import { FavouriteContext } from "../../utils/useContext/useContextFavourites"
-import { DivCart, ShopSection } from "../Cart/Cart"
+import { ShopSection } from "../Cart/Cart"
 
 const Favourites = () => {
    const { cart, setCart } = useContext(CartContext)
