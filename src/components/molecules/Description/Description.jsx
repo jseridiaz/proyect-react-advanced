@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 import Button from "../../atoms/button/button"
 import H3 from "../../atoms/H3/H3"
-import ImgHero from "../../atoms/Img/Img"
+import ImgHero from "../../atoms/Img/ImgHero"
 import Parraf from "../../atoms/Parraf/Parraf"
 
 const Description = ({ h3, p, btn, img, arrow, children, className, id }) => {

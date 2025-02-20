@@ -3,9 +3,9 @@ import styled from "styled-components"
 
 import Button from "../../components/atoms/button/button"
 import H2 from "../../components/atoms/H2/H2"
-import H3 from "../../components/atoms/H3/H3"
-import ImgHero from "../../components/atoms/Img/Img"
+import ImgHero from "../../components/atoms/Img/ImgHero"
 import Parraf from "../../components/atoms/Parraf/Parraf"
+import CardClothing from "../../components/molecules/CardClothing/CardClothing"
 import Seo from "../../components/organisms/Seo/Seo"
 import { calcTotal } from "../../utils/functions/calcTotal/calcTotal"
 import { CartContext } from "../../utils/useContext/useContextCart"
@@ -13,24 +13,6 @@ import { CartContext } from "../../utils/useContext/useContextCart"
 const Cart = () => {
    const { cart, setCart } = useContext(CartContext)
 
-   const handleDelete = el => {
-      setCart(cart.filter(item => item.id != el.id))
-   }
-   const sumQuantity = el =>
-      setCart(prevState =>
-         prevState.map(item =>
-            item.id == el.id ? { ...item, quantity: item.quantity + 1 } : item,
-         ),
-      )
-
-   const resQuantity = el =>
-      setCart(prevState =>
-         prevState.map(item =>
-            item.id == el.id && el.quantity > 1
-               ? { ...item, quantity: item.quantity - 1 }
-               : item,
-         ),
-      )
    const getTotal = () => calcTotal(cart)
    return (
       <>
@@ -45,7 +27,7 @@ const Cart = () => {
                id='cart-section-page'
                className={cart.length > 0 && "width-reduced"}
             >
-               {cart.length == 0 && (
+               {cart.length == 0 ? (
                   <ImgHero
                      idNameContainer='empty-cart-container'
                      img='https://res.cloudinary.com/ddybbosdk/image/upload/v1722439506/Proyect%2012%20react/images/empty-Cart_zoztgh.webp'
@@ -53,43 +35,43 @@ const Cart = () => {
                   >
                      <Parraf id='description-empty-cart'>Your cart ist empty</Parraf>
                   </ImgHero>
-               )}
-               {cart.length > 0 && (
+               ) : (
                   <>
                      <div id='articles-wrp'>
                         {cart.length > 0 &&
                            cart.map(el => (
-                              <DivCart $info={el.title} key={el.id}>
-                                 <ImgHero
-                                    img={el.img}
-                                    alt={`picture-appareal-${el.title}`}
-                                 />
-                                 <div className='info-article-cart'>
-                                    <H3>{el.title}</H3>
-                                    <Parraf id='description-appareal'>
-                                       {el.description}
-                                    </Parraf>
-                                    <Parraf>{el.price}€</Parraf>
-                                    <Button
-                                       action={() => {
-                                          handleDelete(el)
-                                       }}
-                                    >
-                                       X
-                                    </Button>
-                                    <div id='counter-container'>
-                                       <div>
-                                          <Button action={() => resQuantity(el)}>
-                                             -
-                                          </Button>
-                                          <Button action={() => sumQuantity(el)}>
-                                             +
-                                          </Button>
-                                       </div>
-                                       <span>Quantity: {el.quantity}</span>
-                                    </div>
-                                 </div>
-                              </DivCart>
+                              <CardClothing el={el} key={el.id}></CardClothing>
+                              // <DivCart $info={el.title} key={el.id}>
+                              //    <ImgHero
+                              //       img={el.img}
+                              //       alt={`picture-appareal-${el.title}`}
+                              //    />
+                              //    <div className='info-article-cart'>
+                              //       <H3>{el.title}</H3>
+                              //       <Parraf id='description-appareal'>
+                              //          {el.description}
+                              //       </Parraf>
+                              //       <Parraf>{el.price}€</Parraf>
+                              //       <Button
+                              //          action={() => {
+                              //             handleDelete(el)
+                              //          }}
+                              //       >
+                              //          X
+                              //       </Button>
+                              //       <div id='counter-container'>
+                              //          <div>
+                              //             <Button action={() => resQuantity(el)}>
+                              //                -
+                              //             </Button>
+                              //             <Button action={() => sumQuantity(el)}>
+                              //                +
+                              //             </Button>
+                              //          </div>
+                              //          <span>Quantity: {el.quantity}</span>
+                              //       </div>
+                              //    </div>
+                              // </DivCart>
                            ))}
                         <div id='total'>
                            <Button action={() => setCart([])}> Clear Cart</Button>

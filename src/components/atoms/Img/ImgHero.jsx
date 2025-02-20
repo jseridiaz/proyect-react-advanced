@@ -38,6 +38,8 @@ const ImgHero = ({
       </>
    )
 }
+export default memo(ImgHero)
+
 const LiCard = styled.li`
    display: flex;
 
@@ -324,5 +326,3 @@ const ContainerImg = styled.div`
       }
    }
 `
-
-export default memo(ImgHero)

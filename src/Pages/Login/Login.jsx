@@ -28,12 +28,6 @@ const Login = () => {
          dispatch({ type: errorType, payload: payloadValue }),
       [],
    )
-   // const setErrorName = useCallback(
-   //    payloadValue => {
-   //       dispatch({ type: "ADD_ERROR_NAME", payload: payloadValue })
-   //    },
-   //    [inputDataName],
-   // )
 
    const handleChange = useCallback(
       (input, typeInput = "text") => {

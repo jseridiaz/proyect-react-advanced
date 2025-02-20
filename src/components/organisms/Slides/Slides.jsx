@@ -8,7 +8,7 @@ import { handleFavourite } from "../../../utils/functions/handleFavourite/handle
 import { CartContext } from "../../../utils/useContext/useContextCart"
 import { FavouriteContext } from "../../../utils/useContext/useContextFavourites.jsx"
 import Button from "../../atoms/button/button"
-import ImgHero from "../../atoms/Img/Img"
+import ImgHero from "../../atoms/Img/ImgHero.jsx"
 import DescriptionCard from "../../molecules/DescriptionCard/DescriptionCard"
 
 const Slides = () => {

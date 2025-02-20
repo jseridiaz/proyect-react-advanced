@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 import { arraySectionCollection } from "../../../../data/HomeDatas/arraySectionCollection"
 import H2 from "../../../atoms/H2/H2"
-import ImgHero from "../../../atoms/Img/Img"
+import ImgHero from "../../../atoms/Img/ImgHero"
 import Li from "../../../atoms/Li/Li"
 import Description from "../../../molecules/Description/Description"
 const SectionCollection = () => {

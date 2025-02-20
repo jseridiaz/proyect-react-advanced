@@ -4,8 +4,12 @@ import {
    useElements,
    useStripe,
 } from "@stripe/react-stripe-js"
-import React, { useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import styled from "styled-components"
+
+import ImgHero from "../../components/atoms/Img/ImgHero"
+import { CartContext } from "../../utils/useContext/useContextCart"
+import { DivCart } from "../Cart/Cart"
 
 export default function CheckoutForm() {
    const stripe = useStripe()
@@ -13,7 +17,10 @@ export default function CheckoutForm() {
 
    const [message, setMessage] = useState(null)
    const [isLoading, setIsLoading] = useState(false)
-
+   const { cart } = useContext(CartContext)
+   useEffect(() => {
+      console.log(cart)
+   }, [])
    const handleSubmit = async e => {
       e.preventDefault()
       console.log(message)
@@ -61,8 +68,15 @@ export default function CheckoutForm() {
                </span>
             </button>
             {/* Show any error or success messages */}
-            {message && <div id='payment-message'>{message}</div>}
+            {/* {message && <div id='payment-message'>{message}</div>} */}
          </form>
+         <article className='products'>
+            {cart.map(el => (
+               <DivCart key={el.id}>
+                  <ImgHero img={el.img} alt={`picture-appareal-${el.title}`} />
+               </DivCart>
+            ))}
+         </article>
       </ContainerForm>
    )
 }

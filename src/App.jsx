@@ -42,12 +42,16 @@ const App = () => {
          spacingUnit: "3px",
          borderRadius: "4px",
          fontSizeBase: "1.15rem",
-         fontWeightLight: "300", // Texto ligero
-         fontWeightNormal: "600", // Texto normal
-         fontWeightMedium: "500", // Texto medio
-         fontWeightBold: "700",
 
          // See all possible variables below
+      },
+      rules: {
+         ".Label": {
+            fontWeight: "500",
+         },
+         ".Input": {
+            borderWidth: "2px",
+         },
       },
    }
    // Enable the skeleton loader UI for optimal loading.

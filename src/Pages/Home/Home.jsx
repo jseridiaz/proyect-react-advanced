@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import styled from "styled-components"
 
 import H2 from "../../components/atoms/H2/H2"
-import ImgHero from "../../components/atoms/Img/Img"
+import ImgHero from "../../components/atoms/Img/ImgHero"
 import Li from "../../components/atoms/Li/Li"
 import Hero from "../../components/organisms/Hero/Hero"
 import SectionCategories from "../../components/organisms/Home/SectionCategories/SectionCategories"
