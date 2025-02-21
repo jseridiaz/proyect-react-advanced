@@ -20,7 +20,7 @@ import {
    loader,
 } from "./utils/stripe/apareanceAndLogin/appareanceAndLogin"
 import selectLanguage from "./utils/stripe/selectLanguage/selectLanguage"
-import { CreateClient } from "./utils/useContext/useClientSectret"
+import { CreateClient } from "./utils/useContext/useClientSecret"
 
 const stripePromise = loadStripe(import.meta.env.VITE_PUBLICKEY_STRIPE)
 

@@ -9,17 +9,14 @@ import Parraf from "../../components/atoms/Parraf/Parraf"
 import CardClothing from "../../components/molecules/CardClothing/CardClothing"
 import ShowTotalAmount from "../../components/molecules/ShowTotalAmount/ShowTotalAmount"
 import Seo from "../../components/organisms/Seo/Seo"
-import fetchCreateOrders from "../../utils/stripe/fetchCreateOrders/fetchCreateOrders"
-import { CreateClient } from "../../utils/useContext/useClientSectret"
+import { fetchCreateOrders } from "../../utils/stripe/fetchCreateOrders/fetchCreateOrders"
+import { CreateClient } from "../../utils/useContext/useClientSecret"
 import { CartContext } from "../../utils/useContext/useContextCart"
-
 const Cart = () => {
    const navigate = useNavigate()
    const { cart, setCart } = useContext(CartContext)
    const { setClientSecret } = useContext(CreateClient)
    const handlesubmit = () => {
-      console.log(cart)
-
       fetchCreateOrders(cart)
          .then(res => res.json())
          .then(res => {
@@ -63,7 +60,7 @@ const Cart = () => {
                            <ShowTotalAmount cart={cart} />
                         </div>
 
-                        <Button id='buy-btn' action={() => handlesubmit()}>
+                        <Button id='buy-btn' action={handlesubmit}>
                            Buy now
                         </Button>
                      </div>
