@@ -6,7 +6,7 @@ import { HelmetProvider } from "react-helmet-async"
 import { BrowserRouter } from "react-router-dom"
 
 import App from "./App.jsx"
-import CreateClientSecret from "./utils/useContext/useClientSectret.jsx"
+import CreateClientSecret from "./utils/useContext/useClientSecret.jsx"
 import CartContextProvider from "./utils/useContext/useContextCart.jsx"
 import FavoriteContextProvider from "./utils/useContext/useContextFavourites.jsx"
 
