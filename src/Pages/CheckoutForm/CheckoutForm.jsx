@@ -99,7 +99,16 @@ function CheckoutComponent({ cart }) {
             <AddressElement id='adresse-element' options={{ mode: "billing" }} />
             <PaymentElement id='payment-element' options={{ layout: "tabs" }} />
             <button
-               disabled={isLoading || !stripe || !elements || cart.length === 0}
+               disabled
+               // ={isLoading || !stripe || !elements || cart.length === 0}
+               onMouseOver={() => {
+                  setMessage(
+                     "The button for confirm the payment is disabled because this payment method was created to lern the creation process for apply to a real case",
+                  )
+               }}
+               onMouseLeave={() => {
+                  setMessage()
+               }}
                id='submit'
             >
                <span id='button-text'>{isLoading ? "Loading..." : "Pay now"}</span>
@@ -145,11 +154,57 @@ const ContainerForm = styled.div`
          opacity: 0.4;
       }
    }
+
    #message-error-form {
       text-align: center;
       color: crimson;
       font-weight: 500;
       padding: 5px;
       margin-top: 5px;
+   }
+   @media (max-width: 985px) {
+      #payment-form {
+         width: 100%;
+         #submit {
+            min-width: 194px;
+         }
+      }
+      .products {
+         width: 100%;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         > div {
+            width: 100%;
+            min-width: 100px;
+            overflow: hidden;
+         }
+         > div:last-child {
+            width: 80%;
+         }
+      }
+   }
+   @media (max-width: 405px) {
+      padding: var(--jd-padding-l) var(--jd-padding-s);
+      #payment-form {
+         padding: var(--jd-padding-l) var(--jd-padding-m);
+      }
+      .products {
+         width: 100%;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         > div {
+            width: 100%;
+            min-width: 100px;
+            overflow: hidden;
+            > div:nth-of-type(1) {
+               padding: 0;
+               > img {
+                  border-radius: 0px;
+               }
+            }
+         }
+      }
    }
 `
