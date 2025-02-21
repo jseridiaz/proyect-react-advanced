@@ -1,4 +1,5 @@
 import { useContext } from "react"
+import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 
 import Button from "../../components/atoms/button/button"
@@ -8,20 +9,34 @@ import Parraf from "../../components/atoms/Parraf/Parraf"
 import CardClothing from "../../components/molecules/CardClothing/CardClothing"
 import ShowTotalAmount from "../../components/molecules/ShowTotalAmount/ShowTotalAmount"
 import Seo from "../../components/organisms/Seo/Seo"
-// import { calcTotal } from "../../utils/functions/calcTotal/calcTotal"
+import fetchCreateOrders from "../../utils/stripe/fetchCreateOrders/fetchCreateOrders"
+import { CreateClient } from "../../utils/useContext/useClientSectret"
 import { CartContext } from "../../utils/useContext/useContextCart"
 
 const Cart = () => {
+   const navigate = useNavigate()
    const { cart, setCart } = useContext(CartContext)
+   const { setClientSecret } = useContext(CreateClient)
+   const handlesubmit = () => {
+      console.log(cart)
 
-   // const getTotal = () => calcTotal(cart)
+      fetchCreateOrders(cart)
+         .then(res => res.json())
+         .then(res => {
+            setClientSecret(res.clientSecret)
+            navigate(`/cart/payment/${crypto.randomUUID()}`, {
+               state: { clientSecret: res.clientSecret },
+            })
+         })
+   }
    return (
       <>
          <Seo
-            title={"Shopping cart🛍️- Fashion Store"}
+            title={"Shopping cart- Fashion Store"}
             description='Handle your shopping cart and buy your articles'
             img='https://res.cloudinary.com/ddybbosdk/image/upload/v1722546207/Proyect%2012%20react/images/zara-model_1_rzgbw0.avif'
          />
+
          <main>
             <H2 id='title-cart-section'>My shopping cart</H2>
             <ShopSection
@@ -48,10 +63,7 @@ const Cart = () => {
                            <ShowTotalAmount cart={cart} />
                         </div>
 
-                        <Button
-                           id='buy-btn'
-                           goTo={`/cart/payment/${crypto.randomUUID()}`}
-                        >
+                        <Button id='buy-btn' action={() => handlesubmit()}>
                            Buy now
                         </Button>
                      </div>

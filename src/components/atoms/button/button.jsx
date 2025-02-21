@@ -18,7 +18,7 @@ const Button = ({
 }) => (
    <>
       {goTo ? (
-         <Li id={id} className='link-button' to={goTo}>
+         <Li id={id} className='link-button' to={goTo} onClick={console.log("ok")}>
             {text}
             {children}
          </Li>
