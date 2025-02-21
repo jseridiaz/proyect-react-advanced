@@ -104,6 +104,7 @@ function CheckoutComponent({ cart }) {
             >
                <span id='button-text'>{isLoading ? "Loading..." : "Pay now"}</span>
             </button>
+            <p id='message-error-form'>{message}</p>
          </form>
          {cart.length > 0 && (
             <article className='products'>
@@ -143,5 +144,12 @@ const ContainerForm = styled.div`
       &:disabled {
          opacity: 0.4;
       }
+   }
+   #message-error-form {
+      text-align: center;
+      color: crimson;
+      font-weight: 500;
+      padding: 5px;
+      margin-top: 5px;
    }
 `
