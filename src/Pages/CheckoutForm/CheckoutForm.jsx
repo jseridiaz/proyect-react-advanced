@@ -72,26 +72,25 @@ function CheckoutComponent({ cart }) {
 
    const handleSubmit = async e => {
       e.preventDefault()
-      alert("The functionality to make payments is limited")
-      return
-      // if (!stripe || !elements) {
-      //    console.error("Stripe.js aún no se ha cargado completamente.")
-      //    return
-      // }
 
-      // setIsLoading(true)
+      if (!stripe || !elements) {
+         console.error("Stripe.js aún no se ha cargado completamente.")
+         return
+      }
 
-      // const { error } = await stripe.confirmPayment({
-      //    elements,
-      //    confirmParams: { return_url: "http://localhost:5173/complete" },
-      // })
+      setIsLoading(true)
 
-      // if (error) {
-      //    setMessage(error.message || "An unexpected error occurred.")
-      // } else {
-      //    setCart([])
-      // }
-      // setIsLoading(false)
+      const { error } = await stripe.confirmPayment({
+         elements,
+         confirmParams: { return_url: "http://localhost:5173/complete" },
+      })
+
+      if (error) {
+         setMessage(error.message || "An unexpected error occurred.")
+      } else {
+         setCart([])
+      }
+      setIsLoading(false)
    }
 
    return (
