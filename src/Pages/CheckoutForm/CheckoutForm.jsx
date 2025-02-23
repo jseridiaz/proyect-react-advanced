@@ -16,37 +16,18 @@ import {
    appearance,
    loader,
 } from "../../utils/stripe/apareanceAndLogin/appareanceAndLogin"
+import { productionMode } from "../../utils/stripe/productionMode/productionMode"
 import { CartContext } from "../../utils/useContext/useContextCart"
-const stripePromise = loadStripe(import.meta.env.VITE_PUBLICKEY_STRIPE)
+const stripePromise = loadStripe(
+   productionMode
+      ? import.meta.env.VITE_PUBLICKEY_STRIPE_PRODUCTION
+      : import.meta.env.VITE_PUBLICKEY_STRIPE,
+)
 
 export default function CheckoutForm() {
-   // const stripe = useStripe()
-   // const elements = useElements()
-
    const location = useLocation()
    const { cart } = useContext(CartContext)
 
-   // const handleSubmit = async e => {
-   //    e.preventDefault()
-
-   //    if (!stripe || !elements) {
-   //       console.error("Stripe.js aún no se ha cargado completamente.")
-   //       return
-   //    }
-
-   //    setIsLoading(true)
-
-   //    const { error } = await stripe.confirmPayment({
-   //       elements,
-   //       confirmParams: { return_url: "http://localhost:5173/complete" },
-   //    })
-
-   //    if (error) {
-   //       setMessage(error.message || "An unexpected error occurred.")
-   //    }
-
-   //    setIsLoading(false)
-   // }
    return (
       location.state["clientSecret"] && (
          <Elements

@@ -19,10 +19,15 @@ import {
    appearance,
    loader,
 } from "./utils/stripe/apareanceAndLogin/appareanceAndLogin"
+import { productionMode } from "./utils/stripe/productionMode/productionMode"
 import selectLanguage from "./utils/stripe/selectLanguage/selectLanguage"
 import { CreateClient } from "./utils/useContext/useClientSecret"
 
-const stripePromise = loadStripe(import.meta.env.VITE_PUBLICKEY_STRIPE)
+const stripePromise = loadStripe(
+   productionMode
+      ? import.meta.env.VITE_PUBLICKEY_STRIPE_PRODUCTION
+      : import.meta.env.VITE_PUBLICKEY_STRIPE,
+)
 
 const App = () => {
    const { clientSecret } = useContext(CreateClient)
