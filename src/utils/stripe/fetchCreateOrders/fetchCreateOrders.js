@@ -5,15 +5,20 @@ export const fetchCreateOrders = items => {
       ...item,
       amount: (item.price * item.quantity).toFixed(2),
    }))
-
-   return fetch(
-      productionMode
-         ? import.meta.env.VITE_URL_PAYMENTS_PRODUCTION
-         : import.meta.env.VITE_URL_PAYMENTS,
-      {
-         method: "POST",
-         headers: { "Content-Type": "application/json" },
-         body: JSON.stringify({ items: items }),
-      },
-   )
+   try {
+      return fetch(
+         productionMode
+            ? import.meta.env.VITE_URL_PAYMENTS_PRODUCTION
+            : import.meta.env.VITE_URL_PAYMENTS,
+         {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ items: items }),
+         },
+      ).then(res => {
+         console.log(res)
+      })
+   } catch (error) {
+      console.log(error)
+   }
 }
