@@ -60,17 +60,17 @@ function CheckoutComponent({ cart }) {
       }
 
       setIsLoading(true)
+      alert("the payment form is disabled to avoid real payments")
+      // const { error } = await stripe.confirmPayment({
+      //    elements,
+      //    confirmParams: { return_url: "http://localhost:5173/complete" },
+      // })
 
-      const { error } = await stripe.confirmPayment({
-         elements,
-         confirmParams: { return_url: "http://localhost:5173/complete" },
-      })
-
-      if (error) {
-         setMessage(error.message || "An unexpected error occurred.")
-      } else {
-         setCart([])
-      }
+      // if (error) {
+      //    setMessage(error.message || "An unexpected error occurred.")
+      // } else {
+      //    setCart([])
+      // }
       setIsLoading(false)
    }
 
@@ -80,8 +80,7 @@ function CheckoutComponent({ cart }) {
             <AddressElement id='adresse-element' options={{ mode: "billing" }} />
             <PaymentElement id='payment-element' options={{ layout: "tabs" }} />
             <button
-               disabled
-               // ={isLoading || !stripe || !elements || cart.length === 0}
+               disabled={isLoading || !stripe || !elements || cart.length === 0}
                onMouseOver={() => {
                   setMessage(
                      "The button for confirm the payment is disabled because this payment method was created to lern the creation process for apply to a real case",
