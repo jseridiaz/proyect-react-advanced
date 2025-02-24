@@ -15,9 +15,7 @@ export const fetchCreateOrders = items => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ items: items }),
          },
-      ).then(res => {
-         console.log(res)
-      })
+      )
    } catch (error) {
       console.log(error)
    }
