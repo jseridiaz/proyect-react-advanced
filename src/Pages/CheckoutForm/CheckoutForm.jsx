@@ -83,7 +83,7 @@ function CheckoutComponent({ cart }) {
                disabled={isLoading || !stripe || !elements || cart.length === 0}
                onMouseOver={() => {
                   setMessage(
-                     "The button for confirm the payment is disabled because this payment method was created to lern the creation process for apply to a real case",
+                     "The button for confirm the payment is disabled because this payment form was created to apply this process to an unreal e-commerce",
                   )
                }}
                onMouseLeave={() => {
