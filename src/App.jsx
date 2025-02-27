@@ -30,12 +30,10 @@ const stripePromise = loadStripe(
 )
 
 const App = () => {
-   const { clientSecret } = useContext(CreateClient)
-
    return (
       <>
          <Header1 />
-         <Elements
+         {/* <Elements
             options={{
                clientSecret,
                appearance: appearance,
@@ -43,19 +41,19 @@ const App = () => {
                locale: selectLanguage(),
             }}
             stripe={stripePromise}
-         >
-            <Routes>
-               <Route path='/' index element={<Home />} />
-               <Route path='/home' element={<Home />} />
-               <Route path='/cart' element={<Cart />} />
-               <Route path='/cart/payment/:id' element={<CheckoutForm />} />
-               <Route path='/favourites' element={<Favourites />} />
-               <Route path='/login' element={<Login />} />
-               <Route path='/complete' element={<CompletePage />} />
-               <Route path='*' element={<NotFounded />} />
-            </Routes>
-            <Outlet />
-         </Elements>
+         > */}
+         <Routes>
+            <Route path='/' index element={<Home />} />
+            <Route path='/home' element={<Home />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/cart/payment/:id' element={<CheckoutForm />} />
+            <Route path='/favourites' element={<Favourites />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/complete' element={<CompletePage />} />
+            <Route path='*' element={<NotFounded />} />
+         </Routes>
+         <Outlet />
+         {/* </Elements> */}
          <FooterComponent />
       </>
    )
