@@ -1,6 +1,6 @@
 const arrayCards = [
    {
-      id: crypto.randomUUID(),
+      id: "C349-1Tda-51D2-Y142",
       img: "https://res.cloudinary.com/ddybbosdk/image/upload/v1722546207/Proyect%2012%20react/images/zara-model_1_rzgbw0.avif",
       alt: "man-model-with-outfit-summer-blue",
       title: "Zara summer T-shirt ",
@@ -10,7 +10,7 @@ const arrayCards = [
       favourite: false,
    },
    {
-      id: crypto.randomUUID(),
+      id: "P1455-0Ypa-11Q2-D149",
       img: "https://res.cloudinary.com/ddybbosdk/image/upload/v1722542766/Proyect%2012%20react/images/levis-model_iukdxq.avif",
       alt: "man-model-outfit-summer-striped-tshirt",
       title: "Levis stripes",
@@ -20,7 +20,7 @@ const arrayCards = [
       favourite: false,
    },
    {
-      id: crypto.randomUUID(),
+      id: "A145-0q1o-03Q2-D148",
       img: "https://res.cloudinary.com/ddybbosdk/image/upload/v1722543208/Proyect%2012%20react/images/hm_model-reduced_1_11zon_asa0qj.jpg",
       alt: "man-model-outfit-summer-plain-tshirt-brown",
       title: "H&M regular fit",
@@ -30,7 +30,7 @@ const arrayCards = [
       favourite: false,
    },
    {
-      id: crypto.randomUUID(),
+      id: "A135-7Wpy-1pQ4-Dj18",
       img: "https://res.cloudinary.com/ddybbosdk/image/upload/v1722514569/Proyect%2012%20react/images/jack-photo-reduced_adlocc.webp",
       alt: "man-model-outfit-summer-with-two-lines-tshirt-and-sunglasses",
       title: "Jack & Jones Re",
