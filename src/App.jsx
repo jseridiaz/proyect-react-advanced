@@ -1,8 +1,5 @@
 import "./App.css"
 
-import { Elements } from "@stripe/react-stripe-js"
-import { loadStripe } from "@stripe/stripe-js"
-import { useContext } from "react"
 import { Outlet, Route, Routes } from "react-router-dom"
 import styled from "styled-components"
 
@@ -15,33 +12,12 @@ import Favourites from "./Pages/Favourites/Favourites"
 import Home from "./Pages/Home/Home"
 import Login from "./Pages/Login/Login"
 import NotFounded from "./Pages/NotFounded/NotFounded"
-import {
-   appearance,
-   loader,
-} from "./utils/stripe/apareanceAndLogin/appareanceAndLogin"
-import { productionMode } from "./utils/stripe/productionMode/productionMode"
-import selectLanguage from "./utils/stripe/selectLanguage/selectLanguage"
-import { CreateClient } from "./utils/useContext/useClientSecret"
-
-const stripePromise = loadStripe(
-   productionMode
-      ? import.meta.env.VITE_PUBLICKEY_STRIPE_PRODUCTION
-      : import.meta.env.VITE_PUBLICKEY_STRIPE,
-)
 
 const App = () => {
    return (
       <>
          <Header1 />
-         {/* <Elements
-            options={{
-               clientSecret,
-               appearance: appearance,
-               loader: loader,
-               locale: selectLanguage(),
-            }}
-            stripe={stripePromise}
-         > */}
+
          <Routes>
             <Route path='/' index element={<Home />} />
             <Route path='/home' element={<Home />} />
@@ -53,7 +29,6 @@ const App = () => {
             <Route path='*' element={<NotFounded />} />
          </Routes>
          <Outlet />
-         {/* </Elements> */}
          <FooterComponent />
       </>
    )

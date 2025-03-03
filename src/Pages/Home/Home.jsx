@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import styled from "styled-components"
 
 import H2 from "../../components/atoms/H2/H2"
