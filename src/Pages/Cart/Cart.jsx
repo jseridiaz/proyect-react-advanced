@@ -1,5 +1,5 @@
-import { useContext } from "react"
-import { useNavigate } from "react-router-dom"
+import { useContext, useEffect } from "react"
+import { useLocation, useNavigate } from "react-router-dom"
 import styled from "styled-components"
 
 import Button from "../../components/atoms/button/button"
@@ -9,11 +9,13 @@ import Parraf from "../../components/atoms/Parraf/Parraf"
 import CardClothing from "../../components/molecules/CardClothing/CardClothing"
 import ShowTotalAmount from "../../components/molecules/ShowTotalAmount/ShowTotalAmount"
 import Seo from "../../components/organisms/Seo/Seo"
+import arrayCards from "../../data/Home/sectionCategories/arrayCards/arrayCards"
 import { fetchCreateOrders } from "../../utils/stripe/fetchCreateOrders/fetchCreateOrders"
 import { CreateClient } from "../../utils/useContext/useClientSecret"
 import { CartContext } from "../../utils/useContext/useContextCart"
 const Cart = () => {
    const navigate = useNavigate()
+   const location = useLocation()
    const { cart, setCart } = useContext(CartContext)
    const { setClientSecret } = useContext(CreateClient)
    const handlesubmit = () => {
@@ -26,6 +28,13 @@ const Cart = () => {
             })
          })
    }
+   useEffect(() => {
+      if (arrayCards.some(el => (el.id = location.pathname)))
+         arrayCards.find(el => {
+            const product = el.id == location.pathname
+            setCart(product)
+         })
+   }, [])
    return (
       <>
          <Seo
