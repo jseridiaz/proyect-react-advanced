@@ -29,12 +29,29 @@ const Cart = () => {
          })
    }
    useEffect(() => {
-      if (arrayCards.some(el => (el.id = location.pathname)))
-         arrayCards.find(el => {
-            const product = el.id == location.pathname
-            setCart(product)
+      if (location.pathname.split("/")[[2]]) {
+         let product = []
+         const loc = location.pathname.split("/")[[2]]
+         console.log(loc, typeof loc)
+
+         const locat = loc.split("&")
+         console.log(locat)
+
+         locat.forEach(el => {
+            const res = arrayCards.find(it => it.id === el)
+            product.push(res)
          })
+
+         setCart(product)
+      }
    }, [])
+   // useEffect(() => {
+   //    if (arrayCards.some(el => (el.id = location.pathname)))
+   //       arrayCards.find(el => {
+   //          const product = el.id == location.pathname
+   //          setCart(product)
+   //       })
+   // }, [])
    return (
       <>
          <Seo
