@@ -114,7 +114,7 @@ const ContainerForm = styled.div`
    gap: 2rem;
 
    > form {
-      width: 46%;
+      width: 54%;
       padding: 2rem;
       box-shadow: 0px 0px 3px black;
       border-radius: 10px;
